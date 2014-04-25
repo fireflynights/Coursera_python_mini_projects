@@ -5,7 +5,7 @@
 import random
 import simplegui
 
-# initialize global variables used in your code
+# initialize global variables
 num_range=100
 secret_num=0
 remaining_guesses=0
@@ -37,8 +37,7 @@ def range1000():
     num_range=1000
     new_game()
     
-def input_guess(guess):
-    # main game logic goes here	
+def input_guess(guess):	
     '''checks the number of remaining guesses against secret number
     restarts game if player is out of guesses'''
     global remaining_guesses
@@ -71,6 +70,4 @@ frame.add_input("Enter a guess", input_guess, 100)
 # call new_game and start frame
 
 new_game()
-
-# always remember to check your completed program against the grading rubric
 frame.start()
