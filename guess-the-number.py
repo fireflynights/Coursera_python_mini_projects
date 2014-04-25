@@ -4,7 +4,6 @@
 
 import random
 import simplegui
-import math
 
 # initialize global variables used in your code
 num_range=100
@@ -15,15 +14,12 @@ remaining_guesses=0
 def new_game():
     '''starts a new game. sets secret_num to random number in given range.
     resets number of guesses'''
-    global secret_num
-    global remaining_guesses
+    global secret_num, remaining_guesses
+    secret_num=random.randrange(0,num_range)
+    print "\nNew Game. Range is 0 to", num_range
     if num_range==100:
-        secret_num=random.randrange(0,100)
-        print "\nNew Game. Range is 0 to 100"
         remaining_guesses=7
     else:
-        secret_num=random.randrange(0,1000)
-        print "\nNew Game. Range is 0 to 1000"
         remaining_guesses=10
     print "Number of remaining guesses is", remaining_guesses
 
@@ -59,6 +55,7 @@ def input_guess(guess):
             new_game()
     else:
         print "Game over. Try again!"
+        print "The number was:",secret_num
         new_game()
     
     
