@@ -69,7 +69,7 @@ def draw(canvas):
             score2+=1
             
     elif ball_pos[0]>=(WIDTH-PAD_WIDTH-1)-BALL_RADIUS:#Ball hits right gutter
-        if ball_pos[1]>=paddle2_pos and ball_pos[1]<=paddle2_pos+PAD_HEIGHT:# Ball hits left paddle
+        if ball_pos[1]>=paddle2_pos and ball_pos[1]<=paddle2_pos+PAD_HEIGHT:# Ball hits right paddle
             ball_vel[0]=-ball_vel[0]
             ball_vel[0]*=1.1
             ball_vel[1]*=1.1
@@ -99,19 +99,20 @@ def draw(canvas):
 def keydown(key):
     global paddle1_vel, paddle2_vel
     accel=3
-    if key==simplegui.KEY_MAP["up"]:
+    if key==simplegui.KEY_MAP["up"]:#move right paddle up
         paddle2_vel -= accel
-    elif key==simplegui.KEY_MAP["down"]:
+    elif key==simplegui.KEY_MAP["down"]:#move right paddle down
         paddle2_vel +=accel
-    elif key==simplegui.KEY_MAP["w"]:
+    elif key==simplegui.KEY_MAP["w"]:#move left paddle up
         paddle1_vel -= accel
-    elif key==simplegui.KEY_MAP["s"]:
+    elif key==simplegui.KEY_MAP["s"]:#move left paddle down
         paddle1_vel += accel
     
    
 def keyup(key):
     global paddle1_vel, paddle2_vel
     accel=3
+    #stop movement of paddle when key released
     if key==simplegui.KEY_MAP["up"]:
         paddle2_vel += accel
     elif key==simplegui.KEY_MAP["down"]:
@@ -128,6 +129,10 @@ frame.set_draw_handler(draw)
 frame.set_keydown_handler(keydown)
 frame.set_keyup_handler(keyup)
 frame.add_button("Restart", new_game, 200)
+label = frame.add_label('\n\n')
+label = frame.add_label('Left paddle: w for up, s for down')
+label = frame.add_label('\n\n')
+label = frame.add_label('Right paddle: use up and down arrow keys')
 
 
 # start frame
