@@ -17,7 +17,8 @@ def new_game():
     global secret_num, remaining_guesses
     secret_num=random.randrange(0,num_range)
     print "\nNew Game. Range is 0 to", num_range
-    if num_range==100:
+    #assign number of guesses per minimum needed for binary search
+    if num_range==100: 
         remaining_guesses=7
     else:
         remaining_guesses=10
