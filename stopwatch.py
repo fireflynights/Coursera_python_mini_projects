@@ -31,7 +31,7 @@ def start():
 def stop():
     global tries, correct, tenths, running
     timer.stop()
-    if running:
+    if running: #score a point if watch stopped on whole number
         if tenths==0:
             correct+=1
         tries+=1
@@ -71,6 +71,8 @@ frame.set_draw_handler(draw)
 frame.add_button("Start", start, 200)
 frame.add_button("Stop", stop, 200)
 frame.add_button("Reset", reset, 200)
+label = frame.add_label('Everytime the timer is stopped counts as a try')
+label = frame.add_label('Score a point by stopping the timer on a whole second. For example: 15.0')
 
 # start frame
 frame.start()
